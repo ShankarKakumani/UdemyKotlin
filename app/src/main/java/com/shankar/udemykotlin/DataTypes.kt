@@ -10,9 +10,9 @@ class DataTypes : AppCompatActivity() {
         setContentView(R.layout.activity_data_types)
 
         //Declaring int variables
-        var a : Int = 10
-        var b : Int = 5
-        var c : Int = 3
+        val a : Int = 10
+        val b : Int = 5
+        val c : Int = 3
 
         //Mathematical operations
         var result : Int = a + b
@@ -38,8 +38,8 @@ class DataTypes : AppCompatActivity() {
          * Float
          **/
 
-        var floatNum1 : Float = 1.4f
-        var floatNum2 : Float = 5.6f
+        val floatNum1 : Float = 1.4f
+        val floatNum2 : Float = 5.6f
 
         result = (floatNum1 + floatNum2).toInt()
         Log.d("TAG_MATH","floatNum1 + floatNum2 : $result")
@@ -64,6 +64,21 @@ class DataTypes : AppCompatActivity() {
 
         Log.d("TAG_STR","string3  : $string3")
         Log.d("TAG_STR","string4  : $string4")
+
+
+        /**
+         * Array
+         */
+
+        val intArray : Array<Int>  = arrayOf(1, 5, 9, 22)
+        val stringArray : Array<String>  = arrayOf("Sha", "K", "2", "true   ")
+
+        val mixArray : Array<Any> = arrayOf("Shankar", 9, true, 3.5f, 's')
+
+
+        Log.d("TAG_ARRAY","int Array  : ${intArray[2]}, ${stringArray[1]}, ${mixArray[3]}")
+
+
 
 
     }
