@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">UdemyKotlin</string>
     <string name="enter_number">Enter Number</string>
+
+    <string name="str_click">click</string>
+    <string name="weight_in_kg">Weight in KG</string>
+    <string name="height_in_meter">Height in Meter</string>
+    <string name="calculate">Calculate</string>
+    <string name="bmi_image_desc">Image according to yout bmi</string>
+    <string name="play_audio">Click to Play Audio</string>
+
 </resources>

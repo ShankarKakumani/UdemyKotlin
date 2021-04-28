@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UdemyKotlin">
+        <activity android:name=".BmiActivity" />
+        <activity android:name=".ViewBindingActivity" />
+        <activity android:name=".CalculatorActivity" />
         <activity android:name=".ControlFlows" />
         <activity android:name=".ComparisonOperators" />
         <activity android:name=".DataTypes" />
         <activity android:name=".DiceApp" />
-        <activity android:name=".CalculatorActivity">
+        <activity android:name=".number_list.NumberListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
