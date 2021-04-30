@@ -15,6 +15,7 @@ class ControlFlows : AppCompatActivity() {
          */
         val number : Int = 18
         var result : String = ""
+
         if(number % 2 == 0)
         {
             result = "even"
@@ -23,6 +24,7 @@ class ControlFlows : AppCompatActivity() {
         {
             result = "odd"
         }
+
         Log.d("TAG3","Result : $result")
 
 
@@ -197,6 +199,7 @@ class ControlFlows : AppCompatActivity() {
             Log.d("TAG3", "myArray[$index] = $element")
 
         }
+
 
 
         nullSafety()

@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.EditText
 
 class CalculatorActivity : AppCompatActivity() {
+
+
     private lateinit var editText: EditText
     private var number1: Float = 0.0f
     private var isPlus: Boolean = false

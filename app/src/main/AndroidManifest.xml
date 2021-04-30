@@ -9,14 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UdemyKotlin">
-        <activity android:name=".BmiActivity" />
-        <activity android:name=".ViewBindingActivity" />
+        <activity android:name=".dictionary_app.DefinitionActivity"></activity>
+        <activity android:name=".ExceptionHandling" />
+        <activity android:name=".Functions" />
         <activity android:name=".CalculatorActivity" />
+        <activity android:name=".FunctionsActivity" />
+        <activity android:name=".number_list.NumberListActivity" />
         <activity android:name=".ControlFlows" />
+        <activity android:name=".ViewBindingActivity" />
+        <activity android:name=".WidgetPractice" />
+        <activity android:name=".DiceApp" />
         <activity android:name=".ComparisonOperators" />
         <activity android:name=".DataTypes" />
-        <activity android:name=".DiceApp" />
-        <activity android:name=".number_list.NumberListActivity">
+        <activity android:name=".BmiActivity" />
+        <activity android:name=".dictionary_app.DictionaryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

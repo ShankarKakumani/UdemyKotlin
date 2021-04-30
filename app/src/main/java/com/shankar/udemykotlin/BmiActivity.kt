@@ -2,6 +2,7 @@ package com.shankar.udemykotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.shankar.udemykotlin.databinding.ActivityBmiBinding
 
@@ -17,7 +18,7 @@ class BmiActivity : AppCompatActivity() {
 
     }
 
-    fun calculateBmi() {
+    fun calculateBmi(view : View) {
 
         if (binding.weightEditText.text.isNotEmpty() && binding.heightEditText.text.isNotEmpty()) {
 
