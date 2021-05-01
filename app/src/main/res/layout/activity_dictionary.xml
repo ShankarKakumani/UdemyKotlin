@@ -4,10 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/dictionary_background"
     tools:context=".dictionary_app.DictionaryActivity">
 
 
     <EditText
+        android:id="@+id/word_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_eight"
@@ -21,6 +23,7 @@
         android:textStyle="bold" />
 
     <Button
+        android:id="@+id/find_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:backgroundTint="#FFB151"
