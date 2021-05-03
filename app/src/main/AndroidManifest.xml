@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shankar.udemykotlin">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UdemyKotlin">
+        <activity android:name=".fitness_app.FitnessActivity"></activity>
+        <activity android:name=".ConstraintLayout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".dictionary_app.DictionaryActivity" />
         <activity android:name=".dictionary_app.DefinitionActivity" />
         <activity android:name=".ExceptionHandling" />
         <activity android:name=".Functions" />
@@ -23,13 +33,7 @@
         <activity android:name=".ComparisonOperators" />
         <activity android:name=".DataTypes" />
         <activity android:name=".BmiActivity" />
-        <activity android:name=".dictionary_app.DictionaryActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".news_app.NewsActivity" />
     </application>
 
 </manifest>

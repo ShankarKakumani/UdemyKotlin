@@ -64,5 +64,20 @@
     <string name="tools_definition">My Definition</string>
     <string name="str_back_desc">back to search word</string>
     <string name="str_word_not_found">Word not found!</string>
+    <string name="search">Search</string>
+    <string name="search_your_topic">Search Your topic</string>
+    <string name="load_more">Load More</string>
 
+
+    <!--  ConstraintLayout   -->
+    <string name="str_country_name">germany</string>
+    <string name="str_location_text_view">location</string>
+    <string name="str_first_edit_text_hint">your location</string>
+    <string name="str_text_view_town">town</string>
+    <string name="str_edit_text_town">your town</string>
+    <string name="str_button_cancel">Cancel</string>
+    <string name="str_button_confirm">confirm</string>
+    <string name="str_image_view_description">description</string>
+    <string name="str_image_view_two_description">description2</string>
+    <string name="str_about">Germany is a Western European country with a landscape of forests, rivers, mountain ranges and North Sea beaches. It has over 2 millennia of history. Berlin, its capital, is home to art and nightlife scenes, the Brandenburg Gate and many sites relating to WWII. Munich is known for its Oktoberfest and beer halls, including the 16th-century Hofbräuhaus. Frankfurt, with its skyscrapers, houses the European Central Bank.</string>
 </resources>
