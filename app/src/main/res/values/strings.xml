@@ -80,4 +80,32 @@
     <string name="str_image_view_description">description</string>
     <string name="str_image_view_two_description">description2</string>
     <string name="str_about">Germany is a Western European country with a landscape of forests, rivers, mountain ranges and North Sea beaches. It has over 2 millennia of history. Berlin, its capital, is home to art and nightlife scenes, the Brandenburg Gate and many sites relating to WWII. Munich is known for its Oktoberfest and beer halls, including the 16th-century Hofbräuhaus. Frankfurt, with its skyscrapers, houses the European Central Bank.</string>
+
+
+    <!--  Fitness App  -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_ten_times">10 Times</string>
+    <string name="next">Next</string>
+    <string name="exit">Exit</string>
+    <string name="exercise_text_view">%d times</string>
+    <string name="toolbar_title">Exercise Number: (%d/%d)</string>
+    <string name="go">GO!</string>
+
+
+    <string name="exercise_text_view_tools">10 times</string>
+    <string name="next_button_string">next</string>
+    <string name="exit_button_string">exit</string>
+    <string name="title_android_fitness_exercise">Exercise Number: (%d/%d)</string>
+
+    <string name="congrats_image_view">congrats</string>
+    <string name="go_button">GO!</string>
+    <string name="try_again_string">try again</string>
+    <string name="next_workout_string">next workout</string>
+    <string name="try_again_description">try again</string>
+    <string name="about_fitness_app">in this app we will learn about navigation.\n\nnavigation will give us a greate
+        view of
+        our app
+    </string>
+    <string name="about_app_description">about the fitness app</string>
+    <string name="about_string">About</string>
 </resources>
