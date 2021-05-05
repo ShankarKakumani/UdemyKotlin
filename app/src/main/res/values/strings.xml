@@ -119,4 +119,5 @@
     <string name="diary_recycler_date">diary date</string>
     <string name="diary_recycler_title_text_view">diary title</string>
     <string name="add_diary">Add Diary</string>
+    <string name="item">Item</string>
 </resources>

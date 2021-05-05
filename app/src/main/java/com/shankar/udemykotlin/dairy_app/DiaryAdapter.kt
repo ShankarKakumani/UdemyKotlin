@@ -1,16 +1,24 @@
 package com.shankar.udemykotlin.dairy_app
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shankar.udemykotlin.R
+import com.shankar.udemykotlin.dairy_app.data.DatabaseManager.DiaryEntry.ID
+import com.shankar.udemykotlin.dairy_app.data.DatabaseManager.DiaryEntry.TABLE_NAME
+import com.shankar.udemykotlin.dairy_app.data.Diary
+import com.shankar.udemykotlin.dairy_app.data.DiaryDBHelper
 
-class DiaryAdapter(private var diaryList: MutableList<Diary>) : RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder>() {
+class DiaryAdapter(private var diaryList: MutableList<Diary>) :
+    RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int
+    override fun onCreateViewHolder(
+        parent: ViewGroup, position: Int
     ): DiaryViewHolder {
 
 
@@ -18,8 +26,24 @@ class DiaryAdapter(private var diaryList: MutableList<Diary>) : RecyclerView.Ada
         val inflater = LayoutInflater.from(context)
         val shouldAttachToParentImmediately = false
 
-        val view = inflater.inflate(R.layout.recycler_diary_item, parent, shouldAttachToParentImmediately)
+        val view =
+            inflater.inflate(R.layout.recycler_diary_item, parent, shouldAttachToParentImmediately)
 
+        view.findViewById<ImageButton>(R.id.delete_diary).apply {
+
+            setOnClickListener {
+                val mDBHelper = DiaryDBHelper(view.context)
+                val db = mDBHelper.writableDatabase
+                val selection = "$ID = ?"
+                val selectionArgs = arrayOf("${(diaryList[position].id)}")
+
+                db.delete(TABLE_NAME, selection, selectionArgs)
+
+                diaryList.removeAt(position)
+                notifyDataSetChanged()
+            }
+
+        }
         return DiaryViewHolder(view)
     }
 
@@ -38,8 +62,8 @@ class DiaryAdapter(private var diaryList: MutableList<Diary>) : RecyclerView.Ada
         private var view: View = v
         private lateinit var diary: Diary
 
-        private var date : TextView
-        private var title : TextView
+        private var date: TextView
+        private var title: TextView
 
         init {
             view = v
@@ -51,11 +75,15 @@ class DiaryAdapter(private var diaryList: MutableList<Diary>) : RecyclerView.Ada
 
         override fun onClick(v: View?) {
 
+            val context = itemView.context
+            val intent = Intent(context, NewDiaryActivity::class.java)
+            intent.putExtra("IDofRow", diary.id)
+            context.startActivity(intent)
 
         }
 
 
-        fun bindDiary(diary : Diary) {
+        fun bindDiary(diary: Diary) {
 
             this.diary = diary
 
