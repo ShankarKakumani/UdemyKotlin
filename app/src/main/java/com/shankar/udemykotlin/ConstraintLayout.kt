@@ -8,6 +8,5 @@ class ConstraintLayout : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_constraint_layout)
 
-
     }
 }
