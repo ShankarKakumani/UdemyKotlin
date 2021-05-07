@@ -1,6 +1,5 @@
 package com.shankar.udemykotlin.music_player
 
-import android.content.SyncRequest
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shankar.udemykotlin.R
 
-class MusicAdapter(var musicList: MutableList<Music>) :
+class MusicAdapter(private var musicList: MutableList<Music>, private var itemClick: ItemClick) :
     RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicViewHolder {
@@ -32,7 +31,7 @@ class MusicAdapter(var musicList: MutableList<Music>) :
         return musicList.size
     }
 
-    class MusicViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    inner class MusicViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
 
         private var view: View = v
         private lateinit var music: Music
@@ -50,7 +49,8 @@ class MusicAdapter(var musicList: MutableList<Music>) :
         }
 
         override fun onClick(v: View?) {
-            TODO("Not yet implemented")
+
+            itemClick.itemClicked(adapterPosition)
         }
 
 
