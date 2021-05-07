@@ -11,14 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UdemyKotlin">
-        <activity android:name=".dairy_app.NewDiaryActivity" />
-        <activity android:name=".dairy_app.DairyActivity">
+        <activity android:name=".firebase.AuthenticationActivity"/>
+        <activity android:name=".firebase.FirebaseActivity" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".music_player.MusicPlayerActivity" />
+        <activity android:name=".dairy_app.DairyActivity" />
+        <activity android:name=".dairy_app.NewDiaryActivity" />
+        <activity android:name=".advanced_constraint.AdvancedConstraint"/>
         <activity android:name=".fitness_app.FitnessActivity" />
         <activity android:name=".ConstraintLayout" />
         <activity android:name=".advanced_Kotlin.AdvancedKotlin" />
