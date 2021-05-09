@@ -4,6 +4,7 @@ import android.content.Intent
 import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shankar.udemykotlin.dairy_app.data.DatabaseManager.DiaryEntry.COLUMN_DATE
@@ -14,6 +15,7 @@ import com.shankar.udemykotlin.dairy_app.data.DatabaseManager.DiaryEntry.TABLE_N
 import com.shankar.udemykotlin.dairy_app.data.Diary
 import com.shankar.udemykotlin.dairy_app.data.DiaryDBHelper
 import com.shankar.udemykotlin.databinding.ActivityDairyBinding
+import java.io.File
 
 class DairyActivity : AppCompatActivity() {
 
@@ -27,6 +29,7 @@ class DairyActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         binding = ActivityDairyBinding.inflate(layoutInflater)
         setContentView(binding.root)

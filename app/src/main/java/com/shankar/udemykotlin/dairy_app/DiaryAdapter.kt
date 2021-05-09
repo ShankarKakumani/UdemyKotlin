@@ -13,8 +13,7 @@ import com.shankar.udemykotlin.dairy_app.data.DatabaseManager.DiaryEntry.TABLE_N
 import com.shankar.udemykotlin.dairy_app.data.Diary
 import com.shankar.udemykotlin.dairy_app.data.DiaryDBHelper
 
-class DiaryAdapter(private var diaryList: MutableList<Diary>) :
-    RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder>() {
+class DiaryAdapter(private var diaryList: MutableList<Diary>) : RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder>() {
 
 
     override fun onCreateViewHolder(
@@ -26,8 +25,7 @@ class DiaryAdapter(private var diaryList: MutableList<Diary>) :
         val inflater = LayoutInflater.from(context)
         val shouldAttachToParentImmediately = false
 
-        val view =
-            inflater.inflate(R.layout.recycler_diary_item, parent, shouldAttachToParentImmediately)
+        val view = inflater.inflate(R.layout.recycler_diary_item, parent, shouldAttachToParentImmediately)
 
         view.findViewById<ImageButton>(R.id.delete_diary).apply {
 
@@ -50,7 +48,10 @@ class DiaryAdapter(private var diaryList: MutableList<Diary>) :
     override fun onBindViewHolder(holder: DiaryViewHolder, position: Int) {
 
         val item = diaryList[position]
+
         holder.bindDiary(item)
+
+        holder.date.text = item.date
     }
 
     override fun getItemCount(): Int {
@@ -62,8 +63,8 @@ class DiaryAdapter(private var diaryList: MutableList<Diary>) :
         private var view: View = v
         private lateinit var diary: Diary
 
-        private var date: TextView
-        private var title: TextView
+        var date: TextView
+        var title: TextView
 
         init {
             view = v

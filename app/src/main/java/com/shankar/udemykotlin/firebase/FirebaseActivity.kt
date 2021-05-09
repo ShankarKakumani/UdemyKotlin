@@ -117,20 +117,14 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
             .setQuery(messageReference, parser)
             .build()
 
+
         firebaseAdapter = object : FirebaseRecyclerAdapter<Message, MessageViewHolder>(options) {
-            override fun onCreateViewHolder(
-                viewGroup: ViewGroup,
-                viewType: Int
-            ): MessageViewHolder {
+            override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): MessageViewHolder {
                 val inflater = LayoutInflater.from(viewGroup.context)
                 return MessageViewHolder(inflater.inflate(R.layout.item_message, viewGroup, false))
             }
 
-            override fun onBindViewHolder(
-                holder: MessageViewHolder,
-                position: Int,
-                model: Message
-            ) {
+            override fun onBindViewHolder(holder: MessageViewHolder, position: Int, model: Message) {
 
                 binding.progressBar.visibility = View.INVISIBLE
 
@@ -213,15 +207,13 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
                 val imageUrl = message.imageUrl
 
                 if (imageUrl!!.startsWith("gs://")) {
-                    val storageReference =
-                        FirebaseStorage.getInstance().getReferenceFromUrl(imageUrl)
+                    val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(imageUrl)
                     storageReference.downloadUrl.addOnCompleteListener { task ->
 
                         if (task.isSuccessful) {
                             val downloadUrl = task.result!!.toString()
-                            Glide.with(messageImageView.context)
-                                .load(downloadUrl)
-                                .into(messageImageView)
+                            Glide.with(messageImageView.context).load(downloadUrl).into(messageImageView)
+
                         } else {
                             Toast.makeText(
                                 messageImageView.context,
@@ -243,8 +235,7 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
 
             if (message.photoUrl == null) {
                 userImage.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        userImage.context,
+                    ContextCompat.getDrawable(userImage.context,
                         R.drawable.ic_account_circle_black_36dp
                     )
                 )
@@ -301,8 +292,7 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
     private fun putImageInStorage(storageReference: StorageReference, uri: Uri?, key: String?) {
 
         val uploadTask = storageReference.putFile(uri!!)
-        uploadTask.continueWithTask {
-            task ->
+        uploadTask.continueWithTask { task ->
             if(!task.isSuccessful) {
                 throw task.exception!!
 
