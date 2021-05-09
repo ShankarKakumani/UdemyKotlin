@@ -3,30 +3,26 @@
     package="com.shankar.udemykotlin">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.UdemyKotlin">
+        <activity android:name=".book_store.BookStoreActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".firebase.AuthenticationActivity" />
-        <activity android:name=".firebase.FirebaseActivity">
-
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
-
-        <activity android:name=".music_player.MusicPlayerActivity">
-
-
-        </activity>
+        <activity android:name=".firebase.FirebaseActivity"/>
+        <activity android:name=".music_player.MusicPlayerActivity" />
         <activity android:name=".dairy_app.DairyActivity" />
         <activity android:name=".dairy_app.NewDiaryActivity" />
         <activity android:name=".advanced_constraint.AdvancedConstraint" />
@@ -48,9 +44,10 @@
         <activity android:name=".DataTypes" />
         <activity android:name=".BmiActivity" />
         <activity android:name=".news_app.NewsActivity" />
+        <activity android:name=".book_store.AboutActivity" />
 
-
-        <service android:name=".firebase.MyFirebaseMessagingService">
+        <service android:name=".firebase.MyFirebaseMessagingService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
