@@ -5,7 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".firebase_ml.TextRecognition">
 
-    <include layout="@layout/image_text_recognition"/>
-    <include layout="@layout/text_recognition_bottom_sheet"/>
+    <include
+        android:id="@+id/image_layout"
+        layout="@layout/image_text_recognition" />
+    <include
+        android:id="@+id/bottom_sheet_layout"
+        layout="@layout/text_recognition_bottom_sheet"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
