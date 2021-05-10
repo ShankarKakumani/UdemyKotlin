@@ -182,4 +182,13 @@
     <string name="image_about_description">image about description</string>
     <string name="about_book_string">You can buy grate books in bookstore App.</string>
     <string name="fragment_one">Fragment One</string>
+
+    <!--  Machine Learning  -->
+
+    <string name="text_recognition_string">Text Recognition</string>
+    <string name="camera_description">camera take image</string>
+    <string name="text_view_text_recognition">recognized text</string>
+    <string name="image_text_recognition_desc">image text recognition description</string>
+    <string name="gallery_description">gallery image</string>
+
 </resources>

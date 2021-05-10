@@ -13,7 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UdemyKotlin">
-        <activity android:name=".book_store.BookStoreActivity" >
+        <activity android:name=".firebase_ml.TextRecognition"></activity>
+        <activity android:name=".firebase_ml.MachineLearning" />
+        <activity
+            android:name=".book_store.ProfileActivity"
+            android:theme="@style/BookStore.NoActionBar" />
+        <activity
+            android:name=".book_store.BookStoreActivity"
+            android:theme="@style/BookStore.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".firebase.AuthenticationActivity" />
-        <activity android:name=".firebase.FirebaseActivity"/>
+        <activity android:name=".firebase.FirebaseActivity" />
         <activity android:name=".music_player.MusicPlayerActivity" />
         <activity android:name=".dairy_app.DairyActivity" />
         <activity android:name=".dairy_app.NewDiaryActivity" />
@@ -46,7 +53,8 @@
         <activity android:name=".news_app.NewsActivity" />
         <activity android:name=".book_store.AboutActivity" />
 
-        <service android:name=".firebase.MyFirebaseMessagingService"
+        <service
+            android:name=".firebase.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

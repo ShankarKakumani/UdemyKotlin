@@ -215,10 +215,7 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
                             Glide.with(messageImageView.context).load(downloadUrl).into(messageImageView)
 
                         } else {
-                            Toast.makeText(
-                                messageImageView.context,
-                                "${task.exception}",
-                                Toast.LENGTH_SHORT
+                            Toast.makeText(messageImageView.context, "${task.exception}", Toast.LENGTH_SHORT
                             ).show()
                         }
                     }
