@@ -30,10 +30,10 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.shankar.udemykotlin.R
-import com.shankar.udemykotlin.databinding.ActivityFirebaseBinding
+import com.shankar.udemykotlin.databinding.ActivityFirebaseRecyclerBinding
 import de.hdodenhof.circleimageview.CircleImageView
 
-class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
+class FirebaseRecyclerActivity : AppCompatActivity() , GoogleApiClient.OnConnectionFailedListener {
 
     companion object {
         const val TAG = "TAG_FIREBASE"
@@ -41,7 +41,6 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
         const val MESSAGE_CHILD = "messages"
         const val REQUEST_IMAGE = 102
         const val LOADING_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
-
     }
 
     private var userName: String? = null
@@ -57,12 +56,11 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
     private var firebaseDatabase: DatabaseReference? = null
     private var firebaseAdapter: FirebaseRecyclerAdapter<Message, MessageViewHolder>? = null
 
-    private lateinit var binding: ActivityFirebaseBinding
+    private lateinit var binding: ActivityFirebaseRecyclerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityFirebaseBinding.inflate(layoutInflater)
+        binding = ActivityFirebaseRecyclerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firebaseDatabase = FirebaseDatabase.getInstance().reference
@@ -71,7 +69,7 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseUser = firebaseAuth!!.currentUser
 
-        userName = ANONYMOUS
+        userName = FirebaseActivity.ANONYMOUS
 
         checkSigninStatus()
         loadMessages()
@@ -79,7 +77,7 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
         binding.sendButton.setOnClickListener {
 
             val message = Message(binding.textMessageEditText.text.toString(), userName!!, userPhotoUrl, null)
-            firebaseDatabase!!.child(MESSAGE_CHILD).push().setValue(message)
+            firebaseDatabase!!.child(FirebaseActivity.MESSAGE_CHILD).push().setValue(message)
 
             binding.textMessageEditText.setText("")
         }
@@ -89,7 +87,7 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
             intent.addCategory(Intent.CATEGORY_OPENABLE)
 
             intent.type = "image/*"
-            startActivityForResult(intent, REQUEST_IMAGE)
+            startActivityForResult(intent, FirebaseActivity.REQUEST_IMAGE)
 
         }
 
@@ -112,7 +110,7 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
 
         }
 
-        val messageReference = firebaseDatabase!!.child(MESSAGE_CHILD)
+        val messageReference = firebaseDatabase!!.child(FirebaseActivity.MESSAGE_CHILD)
 
         val options = FirebaseRecyclerOptions.Builder<Message>()
             .setQuery(messageReference, parser)
@@ -172,8 +170,8 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
 
     override fun onConnectionFailed(p0: ConnectionResult) {
 
-        Log.e(TAG, "${p0.errorMessage}")
-        Toast.makeText(this, p0.errorMessage, Toast.LENGTH_SHORT).show()
+        Log.e(FirebaseActivity.TAG, "${p0.errorMessage}")
+        Toast.makeText(this, "${p0.errorMessage}", Toast.LENGTH_SHORT).show()
     }
 
     class MessageViewHolder(v: View) : RecyclerView.ViewHolder(v) {
@@ -258,14 +256,16 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == REQUEST_IMAGE) {
+        if(requestCode == FirebaseActivity.REQUEST_IMAGE) {
             if(resultCode == Activity.RESULT_OK) {
                 if(data != null) {
 
                     val uri = data.data
-                    val tempMessage = Message(null, userName, userPhotoUrl, LOADING_IMAGE_URL)
-                    firebaseDatabase!!.child(MESSAGE_CHILD).push().setValue(tempMessage){
-                        error: DatabaseError?, ref: DatabaseReference ->
+                    val tempMessage = Message(null, userName, userPhotoUrl,
+                        FirebaseActivity.LOADING_IMAGE_URL
+                    )
+                    firebaseDatabase!!.child(FirebaseActivity.MESSAGE_CHILD).push().setValue(tempMessage){
+                            error: DatabaseError?, ref: DatabaseReference ->
 
                         if(error == null) {
                             val key = ref.key
@@ -298,11 +298,11 @@ class FirebaseActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailed
             storageReference.downloadUrl
 
         }.addOnCompleteListener {
-            task ->
+                task ->
             if(task.isSuccessful) {
                 val downloadUrl = task.result.toString()
                 val message = Message(null,userName, userPhotoUrl, downloadUrl)
-                firebaseDatabase!!.child(MESSAGE_CHILD).child(key!!).setValue(message)
+                firebaseDatabase!!.child(FirebaseActivity.MESSAGE_CHILD).child(key!!).setValue(message)
             } else {
                 Toast.makeText(this, "${task.exception}", Toast.LENGTH_SHORT).show()
             }

@@ -14,8 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UdemyKotlin">
+        <activity android:name=".firebase.FirebaseRecyclerActivity"></activity>
+        <activity
+            android:name=".animation.AnimationActivity"
+            android:theme="@style/AnimationTheme"></activity>
+        <activity android:name=".firebase_ml.FaceDetection" />
+        <activity android:name=".firebase_ml.ImageLabeling" />
+        <activity android:name=".firebase_ml.BarcodeScanner" />
         <activity android:name=".firebase_ml.TextRecognition" />
-        <activity android:name=".firebase_ml.MachineLearning" >
+        <activity android:name=".firebase_ml.MachineLearning">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,9 +34,7 @@
             android:theme="@style/BookStore.NoActionBar" />
         <activity
             android:name=".book_store.BookStoreActivity"
-            android:theme="@style/BookStore.NoActionBar">
-
-        </activity>
+            android:theme="@style/BookStore.NoActionBar" />
         <activity android:name=".firebase.AuthenticationActivity" />
         <activity android:name=".firebase.FirebaseActivity" />
         <activity android:name=".music_player.MusicPlayerActivity" />
@@ -55,6 +60,10 @@
         <activity android:name=".BmiActivity" />
         <activity android:name=".news_app.NewsActivity" />
         <activity android:name=".book_store.AboutActivity" />
+        <activity android:name=".animation.PlaceHolderExample" />
+        <activity android:name=".animation.CircularPositioning" />
+        <activity android:name=".animation.FirstConstraintSet" />
+        <activity android:name=".animation.SecondConstraintSet" />
 
         <service
             android:name=".firebase.MyFirebaseMessagingService"
@@ -65,15 +74,18 @@
         </service>
 
         <provider
-            android:authorities="${applicationId}.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="ocr, face" />
     </application>
 
 </manifest>
