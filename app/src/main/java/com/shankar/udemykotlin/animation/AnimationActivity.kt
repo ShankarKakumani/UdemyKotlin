@@ -1,5 +1,6 @@
 package com.shankar.udemykotlin.animation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,8 +14,19 @@ class AnimationActivity : AppCompatActivity() {
 
     }
 
-    fun constraintSetFirstExample(view : View){}
-    fun constraintSetSecondExample(view: View){}
-    fun placeHolderExample(view: View){}
-    fun circlePositioning(view: View){}
+    fun constraintSetFirstExample(view: View) {
+        startActivity(Intent(this@AnimationActivity, FirstConstraintSet::class.java))
+    }
+
+    fun constraintSetSecondExample(view: View) {
+        startActivity(Intent(this@AnimationActivity, SecondConstraintSet::class.java))
+    }
+
+    fun placeHolderExample(view: View) {
+        startActivity(Intent(this@AnimationActivity, PlaceHolderExample::class.java))
+    }
+
+    fun circlePositioning(view: View) {
+        startActivity(Intent(this@AnimationActivity, CircularPositioning::class.java))
+    }
 }
